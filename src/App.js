@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import LeftNav from "./Comps/Left/LeftNav";
+import logo from './Comps/images/logo.png';
+import Account from "./Comps/Left/Account";
+import Middle from "./Comps/Middle/subcomps/Middle";
+import Analysis from "./Comps/Middle/subcomps/Analysis";
+import Teams from "./Comps/Middle/subcomps/Teams";
+import Documents from "./Comps/Middle/subcomps/Documents";
+import Settings from "./Comps/Middle/subcomps/Settings";
+import {Route,Routes} from 'react-router-dom';
+import Right from "./Comps/Right/Right";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <div className="main-wrapper">
+       <div className="left-nav">
+       <div className="logo">
+          <img src={logo} alt="logo"/>
+       </div>
+         <LeftNav/>
+         <Account/>
+       </div>
+
+       <div className="middle">
+        <Routes>
+          <Route path="/" element={<Middle/>}/>
+          <Route path="/analysis" element={<Analysis/>}/>
+          <Route path="/members" element={<Teams/>}/>
+          <Route path="/documents" element={<Documents/>}/>
+          <Route path="/settings" element={<Settings/>}/>
+        </Routes>
+       </div>
+
+      
+     </div>
   );
 }
 
